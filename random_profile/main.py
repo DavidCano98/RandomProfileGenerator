@@ -17,14 +17,6 @@ from random_profile.enums.gender import Gender
 from random_profile import utils
 from random_profile.__about__ import __version__
 
-
-
-
-
-
-
-
-
 lname_txt = os.path.join(utils.ASSETS_DIR, "lnames.txt")
 fname_male_txt = os.path.join(utils.ASSETS_DIR, "fnames_male.txt")
 fname_female_txt = os.path.join(utils.ASSETS_DIR, "fnames_female.txt")

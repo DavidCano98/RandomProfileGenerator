@@ -45,14 +45,17 @@ def generate_dob_age() -> tuple:
         day = random.randint(1, 28)
     elif month in [4, 6, 9, 11]:  # if month has 30 days
         day = random.randint(1, 30)
-    elif month in [1, 3, 5, 7, 8, 10, 12]:  # if month has 31 days
+    else:
         day = random.randint(1, 31)
 
-    current_year = datetime.now().year
+    now = datetime.now()
+    current_year = now.year
+
     year = random.randint(current_year - 80, current_year - 18)
 
     dob = datetime(day=day, month=month, year=year)
-    age = (datetime.now() - dob).days // 365
+    age = (now - dob).days // 365
+
     dob = dob.strftime("%d/%m/%Y")
 
     return dob, age
@@ -79,7 +82,9 @@ def generate_random_card() -> dict:
     card_type = random.choice(("Credit", "Debit"))
     number = f"{random.randint(1, 9999):04}-{random.randint(1, 9999):04}-{random.randint(1, 9999):04}-{random.randint(1, 9999):04}"
 
-    expiration_year = random.randint(datetime.today().year, datetime.today().year + 10)
+    now = datetime.now()
+
+    expiration_year = random.randint(now.year, now.year + 10)
     expiration_month = random.randint(1, 12)
     expiration = f"{expiration_month:02}/{str(expiration_year)[-2:]}"
 
